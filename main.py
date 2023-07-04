@@ -43,6 +43,9 @@ upsert_docs_for_all_companies("projects", db, stats_db, COMPANIES)
 # Copy over doe_experiments collection
 upsert_docs_for_all_companies("doe_experiments", db, stats_db, COMPANIES)
 
+# Copy over prediction_archives collection
+upsert_docs_for_all_companies("prediction_archives", db, stats_db, COMPANIES)
+
 # Insert log to mark completion of upsert operation
 stats_db["logs"].insert_one(
     {"upserts_completed": True, "time_completed": datetime.now()}
